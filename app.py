@@ -155,7 +155,7 @@ def event_handle(event):
             replyObj = TextSendMessage(text="ไม่บอกหรอก")
         elif (msg == "เป็นไงบ้าง") :
             replyObj = TextSendMessage(text="อกหักมา")
-        else :
+      else :
             replyObj = TextSendMessage(text=msg)
         line_bot_api.reply_message(rtoken, replyObj)
         elif msgType == "image":
@@ -180,7 +180,7 @@ def event_handle(event):
 
             return 0
 
-       else:
+      else:
         sk_id = np.random.randint(1,17)
         replyObj = StickerSendMessage(package_id=str(1),sticker_id=str(sk_id))
         line_bot_api.reply_message(rtoken, replyObj)
