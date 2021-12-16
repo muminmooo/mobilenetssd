@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory, flash, jsonify
 from werkzeug.utils import secure_filename
-#import cv2
+import cv2
 import numpy as np
 import json
 import requests
@@ -155,10 +155,10 @@ def event_handle(event):
             replyObj = TextSendMessage(text="ไม่บอกหรอก")
         elif (msg == "เป็นไงบ้าง") :
             replyObj = TextSendMessage(text="อกหักมา")
-      else :
+        else :
             replyObj = TextSendMessage(text=msg)
         line_bot_api.reply_message(rtoken, replyObj)
-        elif msgType == "image":
+    elif msgType == "image":
         try:
             message_content = line_bot_api.get_message_content(event['message']['id'])
             i = Image.open(BytesIO(message_content.content))
